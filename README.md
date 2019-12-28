@@ -14,8 +14,8 @@ ImString, however, is a bit more complex. It had to be made a byref type since t
 ImString will implicitly convert from String, so you *can* use it like you would in C++, **but I don't recommend it**. The reason for this is that the strings must be converted from UTF16 to UTF8 every time, and this may be bad for performance. The strings should be cached statically/made readonly and those variables should be used instead, so that the cached byte data can be re-used.
 
 ## Changes from base
-*Scalar and *ScalarN functions are mostly the same as you'd expect, however the ScalarN versions take Spans, which will implicitly convert from arrays. Overloads are used instead of optional values as C++/CLI doesn't support optional parameters.
+\*Scalar and \*ScalarN functions are mostly the same as you'd expect, however the ScalarN versions take Spans, which will implicitly convert from arrays. Overloads are used instead of optional values as C++/CLI doesn't support optional parameters.
 
 All of the varargs functions are gone, since C# does string formatting already.
 
-Some functions (Color*3 and Color*4 mainly) take a Span but do not enforce length at runtime. Please be sure to only call these with the required amount of values.
+Some functions (Color\*3 and Color\*4 mainly) take a Span but do not enforce length at runtime. Please be sure to only call these with the required amount of values.
