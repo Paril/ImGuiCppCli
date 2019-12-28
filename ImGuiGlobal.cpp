@@ -1215,7 +1215,7 @@ namespace ImGuiCppCli
 	}
 
 	generic<typename T>
-	/*static*/ bool ImGui::DragScalar(ImString^ label, ImGuiDataType data_type, T% p_data, float v_speed, T% p_min, T% p_max, ImString^ format, float power)
+	/*static*/ bool ImGui::DragScalar(ImString^ label, ImGuiDataType data_type, T% p_data, float v_speed, T p_min, T p_max, ImString^ format, float power)
 	{
 		IMSTR_DECODE_TEMP(label);
 		IMSTR_DECODE_TEMP(format);
@@ -1226,7 +1226,7 @@ namespace ImGuiCppCli
 	}
 	
 	generic<typename T>
-	/*static*/ bool ImGui::DragScalar(ImString^ label, ImGuiDataType data_type, T% p_data, float v_speed, T% p_min, T% p_max, ImString^ format)
+	/*static*/ bool ImGui::DragScalar(ImString^ label, ImGuiDataType data_type, T% p_data, float v_speed, T p_min, T p_max, ImString^ format)
 	{
 		IMSTR_DECODE_TEMP(label);
 		IMSTR_DECODE_TEMP(format);
@@ -1237,7 +1237,7 @@ namespace ImGuiCppCli
 	}
 		
 	generic<typename T>
-	/*static*/ bool ImGui::DragScalar(ImString^ label, ImGuiDataType data_type, T% p_data, float v_speed, T% p_min, T% p_max)
+	/*static*/ bool ImGui::DragScalar(ImString^ label, ImGuiDataType data_type, T% p_data, float v_speed, T p_min, T p_max)
 	{
 		IMSTR_DECODE_TEMP(label);
 		REF_PIN(T, T, p_data);
@@ -1247,7 +1247,7 @@ namespace ImGuiCppCli
 	}
 		
 	generic<typename T>
-	/*static*/ bool ImGui::DragScalar(ImString^ label, ImGuiDataType data_type, T% p_data, float v_speed, T% p_min)
+	/*static*/ bool ImGui::DragScalar(ImString^ label, ImGuiDataType data_type, T% p_data, float v_speed, T p_min)
 	{
 		IMSTR_DECODE_TEMP(label);
 		REF_PIN(T, T, p_data);
@@ -1264,7 +1264,7 @@ namespace ImGuiCppCli
 	}
 
 	generic<typename T>
-	/*static*/ bool ImGui::DragScalarN(ImString^ label, ImGuiDataType data_type, Span<T> p_data, float v_speed, T% p_min, T% p_max, ImString^ format, float power)
+	/*static*/ bool ImGui::DragScalarN(ImString^ label, ImGuiDataType data_type, Span<T> p_data, float v_speed, T p_min, T p_max, ImString^ format, float power)
 	{
 		IMSTR_DECODE_TEMP(label);
 		IMSTR_DECODE_TEMP(format);
@@ -1275,7 +1275,7 @@ namespace ImGuiCppCli
 	}
 
 	generic<typename T>
-	/*static*/ bool ImGui::DragScalarN(ImString^ label, ImGuiDataType data_type, Span<T> p_data, float v_speed, T% p_min, T% p_max, ImString^ format)
+	/*static*/ bool ImGui::DragScalarN(ImString^ label, ImGuiDataType data_type, Span<T> p_data, float v_speed, T p_min, T p_max, ImString^ format)
 	{
 		IMSTR_DECODE_TEMP(label);
 		IMSTR_DECODE_TEMP(format);
@@ -1286,7 +1286,7 @@ namespace ImGuiCppCli
 	}
 
 	generic<typename T>
-	/*static*/ bool ImGui::DragScalarN(ImString^ label, ImGuiDataType data_type, Span<T> p_data, float v_speed, T% p_min, T% p_max)
+	/*static*/ bool ImGui::DragScalarN(ImString^ label, ImGuiDataType data_type, Span<T> p_data, float v_speed, T p_min, T p_max)
 	{
 		IMSTR_DECODE_TEMP(label);
 		SPAN_GET_PTR(T, void, p_data);
@@ -1296,7 +1296,7 @@ namespace ImGuiCppCli
 	}
 	
 	generic<typename T>
-	/*static*/ bool ImGui::DragScalarN(ImString^ label, ImGuiDataType data_type, Span<T> p_data, float v_speed, T% p_min)
+	/*static*/ bool ImGui::DragScalarN(ImString^ label, ImGuiDataType data_type, Span<T> p_data, float v_speed, T p_min)
 	{
 		IMSTR_DECODE_TEMP(label);
 		SPAN_GET_PTR(T, void, p_data);
@@ -1375,7 +1375,7 @@ namespace ImGuiCppCli
 		auto ret = ::ImGui::InputText(label_cstr, buf->Vector->Data, buf->Vector->capacity(), (OGImGuiInputTextFlags)flags, InputTextCallback);
 
 		if (ret)
-			buf->_string = nullptr;
+			buf->String = nullptr;
 
 		return ret;
 	}
@@ -1390,7 +1390,7 @@ namespace ImGuiCppCli
 		auto ret = ::ImGui::InputText(label_cstr, buf->Vector->Data, buf->Vector->capacity(), (OGImGuiInputTextFlags)flags, InputTextCallback);
 
 		if (ret)
-			buf->_string = nullptr;
+			buf->String = nullptr;
 
 		return ret;
 	}
@@ -1405,7 +1405,7 @@ namespace ImGuiCppCli
 		auto ret = ::ImGui::InputText(label_cstr, buf->Vector->Data, buf->Vector->capacity());
 
 		if (ret)
-			buf->_string = nullptr;
+			buf->String = nullptr;
 
 		return ret;
 	}
@@ -1452,7 +1452,7 @@ namespace ImGuiCppCli
 		auto ret = ::ImGui::InputTextMultiline(label_cstr, buf->Vector->Data, buf->Vector->capacity(), size, (OGImGuiInputTextFlags)flags, InputTextCallback);
 
 		if (ret)
-			buf->_string = nullptr;
+			buf->String = nullptr;
 
 		return ret;
 	}
@@ -1467,7 +1467,7 @@ namespace ImGuiCppCli
 		auto ret = ::ImGui::InputTextMultiline(label_cstr, buf->Vector->Data, buf->Vector->capacity(), size, (OGImGuiInputTextFlags)flags, InputTextCallback);
 
 		if (ret)
-			buf->_string = nullptr;
+			buf->String = nullptr;
 
 		return ret;
 	}
@@ -1482,7 +1482,7 @@ namespace ImGuiCppCli
 		auto ret = ::ImGui::InputTextMultiline(label_cstr, buf->Vector->Data, buf->Vector->capacity(), size);
 
 		if (ret)
-			buf->_string = nullptr;
+			buf->String = nullptr;
 
 		return ret;
 	}
@@ -1497,7 +1497,7 @@ namespace ImGuiCppCli
 		auto ret = ::ImGui::InputTextMultiline(label_cstr, buf->Vector->Data, buf->Vector->capacity());
 
 		if (ret)
-			buf->_string = nullptr;
+			buf->String = nullptr;
 
 		return ret;
 	}
@@ -1540,7 +1540,7 @@ namespace ImGuiCppCli
 		auto ret = ::ImGui::InputTextWithHint(label_cstr, hint_cstr, buf->Vector->Data, buf->Vector->capacity(), (OGImGuiInputTextFlags)flags, InputTextCallback);
 
 		if (ret)
-			buf->_string = nullptr;
+			buf->String = nullptr;
 
 		return ret;
 	}
@@ -1556,7 +1556,7 @@ namespace ImGuiCppCli
 		auto ret = ::ImGui::InputTextWithHint(label_cstr, hint_cstr, buf->Vector->Data, buf->Vector->capacity(), (OGImGuiInputTextFlags)flags, InputTextCallback);
 
 		if (ret)
-			buf->_string = nullptr;
+			buf->String = nullptr;
 
 		return ret;
 	}
@@ -1572,12 +1572,12 @@ namespace ImGuiCppCli
 		auto ret = ::ImGui::InputTextWithHint(label_cstr, hint_cstr, buf->Vector->Data, buf->Vector->capacity());
 
 		if (ret)
-			buf->_string = nullptr;
+			buf->String = nullptr;
 
 		return ret;
 	}
 
-	generic<typename T> /*static*/ bool ImGui::InputScalar(ImString^ label, ImGuiDataType data_type, T% p_data, T% p_step, T% p_step_fast, ImString^ format, ImGuiInputTextFlags flags)
+	generic<typename T> /*static*/ bool ImGui::InputScalar(ImString^ label, ImGuiDataType data_type, T% p_data, T p_step, T p_step_fast, ImString^ format, ImGuiInputTextFlags flags)
 	{
 		CSTR_DECODE_TEMP(label);
 		CSTR_DECODE_TEMP(format);
@@ -1588,7 +1588,7 @@ namespace ImGuiCppCli
 		return ::ImGui::InputScalar(label_cstr, (OGImGuiDataType)data_type, p_data_ptr, p_step_ptr, p_step_fast_ptr, format_cstr, (OGImGuiInputTextFlags)flags);
 	}
 
-	generic<typename T> /*static*/ bool ImGui::InputScalar(ImString^ label, ImGuiDataType data_type, T% p_data, T% p_step, T% p_step_fast, ImString^ format)
+	generic<typename T> /*static*/ bool ImGui::InputScalar(ImString^ label, ImGuiDataType data_type, T% p_data, T p_step, T p_step_fast, ImString^ format)
 	{
 		CSTR_DECODE_TEMP(label);
 		CSTR_DECODE_TEMP(format);
@@ -1599,7 +1599,7 @@ namespace ImGuiCppCli
 		return ::ImGui::InputScalar(label_cstr, (OGImGuiDataType)data_type, p_data_ptr, p_step_ptr, p_step_fast_ptr, format_cstr);
 	}
 
-	generic<typename T> /*static*/ bool ImGui::InputScalar(ImString^ label, ImGuiDataType data_type, T% p_data, T% p_step, T% p_step_fast)
+	generic<typename T> /*static*/ bool ImGui::InputScalar(ImString^ label, ImGuiDataType data_type, T% p_data, T p_step, T p_step_fast)
 	{
 		CSTR_DECODE_TEMP(label);
 		REF_PIN(T, T, p_data);
@@ -1609,7 +1609,7 @@ namespace ImGuiCppCli
 		return ::ImGui::InputScalar(label_cstr, (OGImGuiDataType)data_type, p_data_ptr, p_step_ptr, p_step_fast_ptr);
 	}
 
-	generic<typename T> /*static*/ bool ImGui::InputScalar(ImString^ label, ImGuiDataType data_type, T% p_data, T% p_step)
+	generic<typename T> /*static*/ bool ImGui::InputScalar(ImString^ label, ImGuiDataType data_type, T% p_data, T p_step)
 	{
 		CSTR_DECODE_TEMP(label);
 		REF_PIN(T, T, p_data);
@@ -1626,7 +1626,7 @@ namespace ImGuiCppCli
 		return ::ImGui::InputScalar(label_cstr, (OGImGuiDataType)data_type, p_data_ptr);
 	}
 
-	generic<typename T> /*static*/ bool ImGui::InputScalarN(ImString^ label, ImGuiDataType data_type, Span<T> p_data, T% p_step, T% p_step_fast, ImString^ format, ImGuiInputTextFlags flags)
+	generic<typename T> /*static*/ bool ImGui::InputScalarN(ImString^ label, ImGuiDataType data_type, Span<T> p_data, T p_step, T p_step_fast, ImString^ format, ImGuiInputTextFlags flags)
 	{
 		CSTR_DECODE_TEMP(label);
 		CSTR_DECODE_TEMP(format);
@@ -1636,7 +1636,7 @@ namespace ImGuiCppCli
 		return ::ImGui::InputScalarN(label_cstr, (OGImGuiDataType)data_type, p_data_ptr, p_data.Length, p_step_ptr, p_step_fast_ptr, format_cstr, (OGImGuiInputTextFlags)flags);
 	}
 
-	generic<typename T> /*static*/ bool ImGui::InputScalarN(ImString^ label, ImGuiDataType data_type, Span<T> p_data, T% p_step, T% p_step_fast, ImString^ format)
+	generic<typename T> /*static*/ bool ImGui::InputScalarN(ImString^ label, ImGuiDataType data_type, Span<T> p_data, T p_step, T p_step_fast, ImString^ format)
 	{
 		CSTR_DECODE_TEMP(label);
 		CSTR_DECODE_TEMP(format);
@@ -1646,7 +1646,7 @@ namespace ImGuiCppCli
 		return ::ImGui::InputScalarN(label_cstr, (OGImGuiDataType)data_type, p_data_ptr, p_data.Length, p_step_ptr, p_step_fast_ptr, format_cstr);
 	}
 
-	generic<typename T> /*static*/ bool ImGui::InputScalarN(ImString^ label, ImGuiDataType data_type, Span<T> p_data, T% p_step, T% p_step_fast)
+	generic<typename T> /*static*/ bool ImGui::InputScalarN(ImString^ label, ImGuiDataType data_type, Span<T> p_data, T p_step, T p_step_fast)
 	{
 		CSTR_DECODE_TEMP(label);
 		SPAN_GET_PTR(T, void, p_data);
@@ -1655,7 +1655,7 @@ namespace ImGuiCppCli
 		return ::ImGui::InputScalarN(label_cstr, (OGImGuiDataType)data_type, p_data_ptr, p_data.Length, p_step_ptr, p_step_fast_ptr);
 	}
 
-	generic<typename T> /*static*/ bool ImGui::InputScalarN(ImString^ label, ImGuiDataType data_type, Span<T> p_data, T% p_step)
+	generic<typename T> /*static*/ bool ImGui::InputScalarN(ImString^ label, ImGuiDataType data_type, Span<T> p_data, T p_step)
 	{
 		CSTR_DECODE_TEMP(label);
 		SPAN_GET_PTR(T, void, p_data);
@@ -1696,7 +1696,7 @@ namespace ImGuiCppCli
 		return ::ImGui::SliderAngle(label_cstr, v_rad_ptr);
 	}
 
-	generic<typename T> /*static*/ bool ImGui::SliderScalar(ImString^ label, ImGuiDataType data_type, T% p_data, T% p_min, T% p_max, ImString^ format, float power)
+	generic<typename T> /*static*/ bool ImGui::SliderScalar(ImString^ label, ImGuiDataType data_type, T% p_data, T p_min, T p_max, ImString^ format, float power)
 	{
 		CSTR_DECODE_TEMP(label);
 		REF_PIN(T, T, p_data);
@@ -1706,7 +1706,7 @@ namespace ImGuiCppCli
 		return ::ImGui::SliderScalar(label_cstr, (OGImGuiDataType)data_type, p_data_ptr, p_min_ptr, p_max_ptr, format_cstr, power);
 	}
 
-	generic<typename T> /*static*/ bool ImGui::SliderScalar(ImString^ label, ImGuiDataType data_type, T% p_data, T% p_min, T% p_max, ImString^ format)
+	generic<typename T> /*static*/ bool ImGui::SliderScalar(ImString^ label, ImGuiDataType data_type, T% p_data, T p_min, T p_max, ImString^ format)
 	{
 		CSTR_DECODE_TEMP(label);
 		REF_PIN(T, T, p_data);
@@ -1716,7 +1716,7 @@ namespace ImGuiCppCli
 		return ::ImGui::SliderScalar(label_cstr, (OGImGuiDataType)data_type, p_data_ptr, p_min_ptr, p_max_ptr, format_cstr);
 	}
 
-	generic<typename T> /*static*/ bool ImGui::SliderScalar(ImString^ label, ImGuiDataType data_type, T% p_data, T% p_min, T% p_max)
+	generic<typename T> /*static*/ bool ImGui::SliderScalar(ImString^ label, ImGuiDataType data_type, T% p_data, T p_min, T p_max)
 	{
 		CSTR_DECODE_TEMP(label);
 		REF_PIN(T, T, p_data);
@@ -1725,7 +1725,7 @@ namespace ImGuiCppCli
 		return ::ImGui::SliderScalar(label_cstr, (OGImGuiDataType)data_type, p_data_ptr, p_min_ptr, p_max_ptr);
 	}
 
-	generic<typename T> /*static*/ bool ImGui::SliderScalarN(ImString^ label, ImGuiDataType data_type, Span<T> p_data, T% p_min, T% p_max, ImString^ format, float power)
+	generic<typename T> /*static*/ bool ImGui::SliderScalarN(ImString^ label, ImGuiDataType data_type, Span<T> p_data, T p_min, T p_max, ImString^ format, float power)
 	{
 		CSTR_DECODE_TEMP(label);
 		SPAN_GET_PTR(T, void, p_data);
@@ -1735,7 +1735,7 @@ namespace ImGuiCppCli
 		return ::ImGui::SliderScalarN(label_cstr, (OGImGuiDataType)data_type, p_data_ptr, p_data.Length, p_min_ptr, p_max_ptr, format_cstr, power);
 	}
 
-	generic<typename T> /*static*/ bool ImGui::SliderScalarN(ImString^ label, ImGuiDataType data_type, Span<T> p_data, T% p_min, T% p_max, ImString^ format)
+	generic<typename T> /*static*/ bool ImGui::SliderScalarN(ImString^ label, ImGuiDataType data_type, Span<T> p_data, T p_min, T p_max, ImString^ format)
 	{
 		CSTR_DECODE_TEMP(label);
 		SPAN_GET_PTR(T, void, p_data);
@@ -1745,7 +1745,7 @@ namespace ImGuiCppCli
 		return ::ImGui::SliderScalarN(label_cstr, (OGImGuiDataType)data_type, p_data_ptr, p_data.Length, p_min_ptr, p_max_ptr, format_cstr);
 	}
 
-	generic<typename T> /*static*/ bool ImGui::SliderScalarN(ImString^ label, ImGuiDataType data_type, Span<T> p_data, T% p_min, T% p_max)
+	generic<typename T> /*static*/ bool ImGui::SliderScalarN(ImString^ label, ImGuiDataType data_type, Span<T> p_data, T p_min, T p_max)
 	{
 		CSTR_DECODE_TEMP(label);
 		SPAN_GET_PTR(T, void, p_data);
@@ -1754,7 +1754,7 @@ namespace ImGuiCppCli
 		return ::ImGui::SliderScalarN(label_cstr, (OGImGuiDataType)data_type, p_data_ptr, p_data.Length, p_min_ptr, p_max_ptr);
 	}
 
-	generic<typename T> /*static*/ bool ImGui::VSliderScalar(ImString^ label, ImVec2 size, ImGuiDataType data_type, T% p_data, T% p_min, T% p_max, ImString^ format, float power)
+	generic<typename T> /*static*/ bool ImGui::VSliderScalar(ImString^ label, ImVec2 size, ImGuiDataType data_type, T% p_data, T p_min, T p_max, ImString^ format, float power)
 	{
 		CSTR_DECODE_TEMP(label);
 		REF_PIN(T, T, p_data);
@@ -1764,7 +1764,7 @@ namespace ImGuiCppCli
 		return ::ImGui::VSliderScalar(label_cstr, size, (OGImGuiDataType)data_type, p_data_ptr, p_min_ptr, p_max_ptr, format_cstr, power);
 	}
 
-	generic<typename T> /*static*/ bool ImGui::VSliderScalar(ImString^ label, ImVec2 size, ImGuiDataType data_type, T% p_data, T% p_min, T% p_max, ImString^ format)
+	generic<typename T> /*static*/ bool ImGui::VSliderScalar(ImString^ label, ImVec2 size, ImGuiDataType data_type, T% p_data, T p_min, T p_max, ImString^ format)
 	{
 		CSTR_DECODE_TEMP(label);
 		REF_PIN(T, T, p_data);
@@ -1774,7 +1774,7 @@ namespace ImGuiCppCli
 		return ::ImGui::VSliderScalar(label_cstr, size, (OGImGuiDataType)data_type, p_data_ptr, p_min_ptr, p_max_ptr, format_cstr);
 	}
 
-	generic<typename T> /*static*/ bool ImGui::VSliderScalar(ImString^ label, ImVec2 size, ImGuiDataType data_type, T% p_data, T% p_min, T% p_max)
+	generic<typename T> /*static*/ bool ImGui::VSliderScalar(ImString^ label, ImVec2 size, ImGuiDataType data_type, T% p_data, T p_min, T p_max)
 	{
 		CSTR_DECODE_TEMP(label);
 		REF_PIN(T, T, p_data);

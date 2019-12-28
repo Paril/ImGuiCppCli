@@ -268,15 +268,15 @@ namespace ImGuiCppCli
 		static bool DragIntRange2(ImString^ label, int% v_current_min, int% v_current_max, float v_speed, int v_min);
 		static bool DragIntRange2(ImString^ label, int% v_current_min, int% v_current_max, float v_speed);
 		static bool DragIntRange2(ImString^ label, int% v_current_min, int% v_current_max);
-		generic<typename T> static bool DragScalar(ImString^ label, ImGuiDataType data_type, T% p_data, float v_speed, T% p_min, T% p_max, ImString^ format, float power);
-		generic<typename T> static bool DragScalar(ImString^ label, ImGuiDataType data_type, T% p_data, float v_speed, T% p_min, T% p_max, ImString^ format);
-		generic<typename T> static bool DragScalar(ImString^ label, ImGuiDataType data_type, T% p_data, float v_speed, T% p_min, T% p_max);
-		generic<typename T> static bool DragScalar(ImString^ label, ImGuiDataType data_type, T% p_data, float v_speed, T% p_min);
+		generic<typename T> static bool DragScalar(ImString^ label, ImGuiDataType data_type, T% p_data, float v_speed, T p_min, T p_max, ImString^ format, float power);
+		generic<typename T> static bool DragScalar(ImString^ label, ImGuiDataType data_type, T% p_data, float v_speed, T p_min, T p_max, ImString^ format);
+		generic<typename T> static bool DragScalar(ImString^ label, ImGuiDataType data_type, T% p_data, float v_speed, T p_min, T p_max);
+		generic<typename T> static bool DragScalar(ImString^ label, ImGuiDataType data_type, T% p_data, float v_speed, T p_min);
 		generic<typename T> static bool DragScalar(ImString^ label, ImGuiDataType data_type, T% p_data, float v_speed);
-		generic<typename T> static bool DragScalarN(ImString^ label, ImGuiDataType data_type, Span<T> p_data, float v_speed, T% p_min, T% p_max, ImString^ format, float power);
-		generic<typename T> static bool DragScalarN(ImString^ label, ImGuiDataType data_type, Span<T> p_data, float v_speed, T% p_min, T% p_max, ImString^ format);
-		generic<typename T> static bool DragScalarN(ImString^ label, ImGuiDataType data_type, Span<T> p_data, float v_speed, T% p_min, T% p_max);
-		generic<typename T> static bool DragScalarN(ImString^ label, ImGuiDataType data_type, Span<T> p_data, float v_speed, T% p_min);
+		generic<typename T> static bool DragScalarN(ImString^ label, ImGuiDataType data_type, Span<T> p_data, float v_speed, T p_min, T p_max, ImString^ format, float power);
+		generic<typename T> static bool DragScalarN(ImString^ label, ImGuiDataType data_type, Span<T> p_data, float v_speed, T p_min, T p_max, ImString^ format);
+		generic<typename T> static bool DragScalarN(ImString^ label, ImGuiDataType data_type, Span<T> p_data, float v_speed, T p_min, T p_max);
+		generic<typename T> static bool DragScalarN(ImString^ label, ImGuiDataType data_type, Span<T> p_data, float v_speed, T p_min);
 		generic<typename T> static bool DragScalarN(ImString^ label, ImGuiDataType data_type, Span<T> p_data, float v_speed);
 		static bool DragFloat(ImString^ label, float% p_data, float v_speed, float p_min, float p_max, ImString^ format, float power) { return DragScalar(label, ImGuiDataType::Float, p_data, v_speed, p_min, p_max, format, power); }
 		static bool DragFloat(ImString^ label, float% p_data, float v_speed, float p_min, float p_max, ImString^ format) { return DragScalar(label, ImGuiDataType::Float, p_data, v_speed, p_min, p_max, format); }
@@ -317,20 +317,20 @@ namespace ImGuiCppCli
 		static bool SliderInt(ImString^ label, int% p_data, int p_min, int p_max) { return  SliderScalar<int>(label, ImGuiDataType::S32, p_data, p_min, p_max); }
 		static bool SliderIntN(ImString^ label, Span<int> p_data, int p_min, int p_max, ImString^ format) { return SliderScalarN<int>(label, ImGuiDataType::S32, p_data, p_min, p_max, format); }
 		static bool SliderIntN(ImString^ label, Span<int> p_data, int p_min, int p_max) { return SliderScalarN<int>(label, ImGuiDataType::S32, p_data, p_min, p_max); }
-		generic<typename T> static bool SliderScalar(ImString^ label, ImGuiDataType data_type, T% p_data, T% p_min, T% p_max, ImString^ format, float power);
-		generic<typename T> static bool SliderScalar(ImString^ label, ImGuiDataType data_type, T% p_data, T% p_min, T% p_max, ImString^ format);
-		generic<typename T> static bool SliderScalar(ImString^ label, ImGuiDataType data_type, T% p_data, T% p_min, T% p_max);
-		generic<typename T> static bool SliderScalarN(ImString^ label, ImGuiDataType data_type, Span<T> p_data, T% p_min, T% p_max, ImString^ format, float power);
-		generic<typename T> static bool SliderScalarN(ImString^ label, ImGuiDataType data_type, Span<T> p_data, T% p_min, T% p_max, ImString^ format);
-		generic<typename T> static bool SliderScalarN(ImString^ label, ImGuiDataType data_type, Span<T> p_data, T% p_min, T% p_max);
+		generic<typename T> static bool SliderScalar(ImString^ label, ImGuiDataType data_type, T% p_data, T p_min, T p_max, ImString^ format, float power);
+		generic<typename T> static bool SliderScalar(ImString^ label, ImGuiDataType data_type, T% p_data, T p_min, T p_max, ImString^ format);
+		generic<typename T> static bool SliderScalar(ImString^ label, ImGuiDataType data_type, T% p_data, T p_min, T p_max);
+		generic<typename T> static bool SliderScalarN(ImString^ label, ImGuiDataType data_type, Span<T> p_data, T p_min, T p_max, ImString^ format, float power);
+		generic<typename T> static bool SliderScalarN(ImString^ label, ImGuiDataType data_type, Span<T> p_data, T p_min, T p_max, ImString^ format);
+		generic<typename T> static bool SliderScalarN(ImString^ label, ImGuiDataType data_type, Span<T> p_data, T p_min, T p_max);
 		static bool VSliderFloat(ImString^ label, ImVec2 size, float% p_data, float p_min, float p_max, ImString^ format, float power) { return VSliderScalar<float>(label, size, ImGuiDataType::Float, p_data, p_min, p_max, format, power); }
 		static bool VSliderFloat(ImString^ label, ImVec2 size, float% p_data, float p_min, float p_max, ImString^ format) { return VSliderScalar<float>(label, size, ImGuiDataType::Float, p_data, p_min, p_max, format); }
 		static bool VSliderFloat(ImString^ label, ImVec2 size, float% p_data, float p_min, float p_max) { return VSliderScalar<float>(label, size, ImGuiDataType::Float, p_data, p_min, p_max); }
 		static bool VSliderInt(ImString^ label, ImVec2 size, int% p_data, int p_min, int p_max, ImString^ format) { return VSliderScalar<int>(label, size, ImGuiDataType::S32, p_data, p_min, p_max, format); }
 		static bool VSliderInt(ImString^ label, ImVec2 size, int% p_data, int p_min, int p_max) { return VSliderScalar<int>(label, size, ImGuiDataType::S32, p_data, p_min, p_max); }
-		generic<typename T> static bool VSliderScalar(ImString^ label, ImVec2 size, ImGuiDataType data_type, T% p_data, T% p_min, T% p_max, ImString^ format, float power);
-		generic<typename T> static bool VSliderScalar(ImString^ label, ImVec2 size, ImGuiDataType data_type, T% p_data, T% p_min, T% p_max, ImString^ format);
-		generic<typename T> static bool VSliderScalar(ImString^ label, ImVec2 size, ImGuiDataType data_type, T% p_data, T% p_min, T% p_max);
+		generic<typename T> static bool VSliderScalar(ImString^ label, ImVec2 size, ImGuiDataType data_type, T% p_data, T p_min, T p_max, ImString^ format, float power);
+		generic<typename T> static bool VSliderScalar(ImString^ label, ImVec2 size, ImGuiDataType data_type, T% p_data, T p_min, T p_max, ImString^ format);
+		generic<typename T> static bool VSliderScalar(ImString^ label, ImVec2 size, ImGuiDataType data_type, T% p_data, T p_min, T p_max);
 
 		static bool InputText(ImString^ label, Span<unsigned char> buf, ImGuiInputTextFlags flags, InputTextDelegate^ callback);
 		static bool InputText(ImString^ label, Span<unsigned char> buf, ImGuiInputTextFlags flags);
@@ -352,15 +352,15 @@ namespace ImGuiCppCli
 		static bool InputTextWithHint(ImString^ label, ImString^ hint, ImString^ buf, ImGuiInputTextFlags flags, InputTextDelegate^ callback);
 		static bool InputTextWithHint(ImString^ label, ImString^ hint, ImString^ buf, ImGuiInputTextFlags flags);
 		static bool InputTextWithHint(ImString^ label, ImString^ hint, ImString^ buf);
-		generic<typename T> static bool InputScalar(ImString^ label, ImGuiDataType data_type, T% p_data, T% p_step, T% p_step_fast, ImString^ format, ImGuiInputTextFlags flags);
-		generic<typename T> static bool InputScalar(ImString^ label, ImGuiDataType data_type, T% p_data, T% p_step, T% p_step_fast, ImString^ format);
-		generic<typename T> static bool InputScalar(ImString^ label, ImGuiDataType data_type, T% p_data, T% p_step, T% p_step_fast);
-		generic<typename T> static bool InputScalar(ImString^ label, ImGuiDataType data_type, T% p_data, T% p_step);
+		generic<typename T> static bool InputScalar(ImString^ label, ImGuiDataType data_type, T% p_data, T p_step, T p_step_fast, ImString^ format, ImGuiInputTextFlags flags);
+		generic<typename T> static bool InputScalar(ImString^ label, ImGuiDataType data_type, T% p_data, T p_step, T p_step_fast, ImString^ format);
+		generic<typename T> static bool InputScalar(ImString^ label, ImGuiDataType data_type, T% p_data, T p_step, T p_step_fast);
+		generic<typename T> static bool InputScalar(ImString^ label, ImGuiDataType data_type, T% p_data, T p_step);
 		generic<typename T> static bool InputScalar(ImString^ label, ImGuiDataType data_type, T% p_data);
-		generic<typename T> static bool InputScalarN(ImString^ label, ImGuiDataType data_type, Span<T> p_data, T% p_step, T% p_step_fast, ImString^ format, ImGuiInputTextFlags flags);
-		generic<typename T> static bool InputScalarN(ImString^ label, ImGuiDataType data_type, Span<T> p_data, T% p_step, T% p_step_fast, ImString^ format);
-		generic<typename T> static bool InputScalarN(ImString^ label, ImGuiDataType data_type, Span<T> p_data, T% p_step, T% p_step_fast);
-		generic<typename T> static bool InputScalarN(ImString^ label, ImGuiDataType data_type, Span<T> p_data, T% p_step);
+		generic<typename T> static bool InputScalarN(ImString^ label, ImGuiDataType data_type, Span<T> p_data, T p_step, T p_step_fast, ImString^ format, ImGuiInputTextFlags flags);
+		generic<typename T> static bool InputScalarN(ImString^ label, ImGuiDataType data_type, Span<T> p_data, T p_step, T p_step_fast, ImString^ format);
+		generic<typename T> static bool InputScalarN(ImString^ label, ImGuiDataType data_type, Span<T> p_data, T p_step, T p_step_fast);
+		generic<typename T> static bool InputScalarN(ImString^ label, ImGuiDataType data_type, Span<T> p_data, T p_step);
 		generic<typename T> static bool InputScalarN(ImString^ label, ImGuiDataType data_type, Span<T> p_data);
 		static bool InputFloat(ImString^ label, float% v, float step, float step_fast, ImString^ format, ImGuiInputTextFlags flags) { return InputScalar(label, ImGuiDataType::Float, v, step, step_fast, format, flags); }
 		static bool InputFloat(ImString^ label, float% v, float step, float step_fast, ImString^ format) { return InputScalar(label, ImGuiDataType::Float, v, step, step_fast, format); }
