@@ -78,7 +78,7 @@ namespace ImGuiCppCli
 		if (_bytes_dirty)
 		{
 			_bytes->reserve(_encoding->GetMaxByteCount(_string->Length) + 1);
-			_encoding->GetBytes(_string, Span<unsigned char>(_bytes->Data, _bytes->capacity()));
+			_bytes->Size = _encoding->GetBytes(_string, Span<unsigned char>(_bytes->Data, _bytes->capacity()));
 			_bytes->Data[_bytes->Size] = 0;
 			_bytes_dirty = false;
 		}
@@ -163,7 +163,8 @@ namespace ImGuiCppCli
 
 	ImString::ImString(::String^ string, ::Encoding^ encoding) :
 		_encoding(encoding),
-		_string(string)
+		_string(string),
+		_bytes_dirty(true)
 	{
 		_bytes = new ::ImVector<char>();
 		_bytes->reserve(_encoding->GetMaxByteCount(_string->Length));

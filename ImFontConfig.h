@@ -18,6 +18,7 @@ namespace ImGuiCppCli
 
 	public ref struct ImFontDataStorage
 	{
+	internal:
 		void* _data;
 		int _size;
 
